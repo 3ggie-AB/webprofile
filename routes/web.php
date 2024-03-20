@@ -11,6 +11,10 @@ route::get('/kontak', function(){
     return view('kontak');
 })->name('kontak');
 
+route::get('/kerja', function(){
+    return view('menu.kerja');
+})->name('kerja');
+
 route::view('/pendidikan','menu.pendidikan.index')->name('pendidikan');
 route::view('/pendidikan/tk','menu.pendidikan.tk')->name('tk');
 route::view('/pendidikan/mi','menu.pendidikan.mi')->name('mi');
