@@ -8,6 +8,7 @@
   <title>Blog Egi</title>
   <meta content="Ini adalah Blog profile Egi" name="description">
   <meta content="Blog Pribadi Egi" name="keywords">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Favicons -->
   <link href="{{ asset('foto/logoweb.jpg') }}" rel="icon">
@@ -29,14 +30,7 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
-
-  <!-- ======= Top Bar ======= -->
-  
-  <div class="container d-flex justify-content-center justify-content-md-between">
-    <div class="social-links d-none d-md-flex align-items-center">
-    </div>
-  </div>
+<body style="background: @yield('bg-body')">
 
   @include('template.navbar-utama');
 

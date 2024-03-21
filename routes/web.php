@@ -1,19 +1,26 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Sambutan;
+use App\Models\User;
 
 Route::get('/', function () {
-    return view('index');
+    return view('index',['blog_title'=>'menu']);
 });
 
 route::get('/kontak', function(){
-    return view('kontak');
+    return view('kontak',['blog_title'=>'kerja']);
 })->name('kontak');
 
 route::get('/kerja', function(){
-    return view('menu.kerja');
+    return view('menu.kerja',['blog_title'=>'kerja']);
 })->name('kerja');
+
+route::get('/login', [LoginController::class,'index'])->name('login');
+route::get('/register', [RegisterController::class,'index'])->name('register');
+
+route::post('/register',[RegisterController::class,'store']);
 
 route::view('/pendidikan','menu.pendidikan.index')->name('pendidikan');
 route::view('/pendidikan/tk','menu.pendidikan.tk')->name('tk');

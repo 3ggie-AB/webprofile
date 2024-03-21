@@ -115,6 +115,7 @@ h6 {
 /*--------------------------------------------------------------
 # Top Bar
 --------------------------------------------------------------*/
+
 #topbar {
   background: #106eea;
   height: 40px;
@@ -632,7 +633,7 @@ section {
 .section-title p {
   margin: 15px auto 0 auto;
   font-weight: 600;
-} 
+}
 
 @media (min-width: 1024px) {
   .section-title p {
