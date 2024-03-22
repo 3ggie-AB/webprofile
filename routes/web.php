@@ -6,20 +6,29 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
 Route::get('/', function () {
-    return view('index',['blog_title'=>'menu']);
+    return view('index',['blog_title'=>'Home']);
 });
 
+route::get('/dashboard', function(){
+    return view('dashboard',['blog_title'=>'dashboard']);
+})->name('dashboard')->middleware('auth');
+
 route::get('/kontak', function(){
-    return view('kontak',['blog_title'=>'kerja']);
+    return view('kontak',['blog_title'=>'kontak']);
 })->name('kontak');
 
 route::get('/kerja', function(){
     return view('menu.kerja',['blog_title'=>'kerja']);
 })->name('kerja');
 
-route::get('/login', [LoginController::class,'index'])->name('login');
-route::get('/register', [RegisterController::class,'index'])->name('register');
+route::get('/kuliah',function(){
+    return view('menu.kuliah.index',['blog_title'=>'kuliah']);
+})->name('kuliah');
 
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+route::get('/register', [RegisterController::class,'index'])->name('register');
 route::post('/register',[RegisterController::class,'store']);
 
 route::view('/pendidikan','menu.pendidikan.index')->name('pendidikan');

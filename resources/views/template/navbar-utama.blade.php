@@ -1,14 +1,29 @@
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-baseline justify-content-between">
 
-        <h1 class="logo text-primary" style="text-transform: uppercase">{{ $blog_title ?? 'BLOG' }}</h1>
+        <h1 class="logo text-primary" style="text-transform:capitalize">{{ $blog_title ?? 'BLOG' }}</h1>
 
         <nav id="navbar" class="navbar">
             <ul>
+                @if (auth()->check())
+                    <li><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
+                @endif
                 <li class="dropdown active"><a href="/">Home <i class="bi bi-caret-down-fill"></i></a>
                     <ul>
-                        <li><a href="{{ route('login') }}">Login <i class="bi bi-person-fill"></i></a></li>
-                        <li><a href="{{ route('register') }}">Register <i class="bi bi-person-vcard-fill"></i></a></li>
+                        <li><a href="/">Home <i class="bi bi-house"></i></a>
+                        @auth
+                            <li>
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"><a class="nav-link">Logoout<i class="bi bi-box-arrow-right"></i></a>
+                                        </button>
+                                </form>
+                            </li>
+                        @else
+                            <li><a href="{{ route('login') }}">Login <i class="bi bi-person-fill"></i></a></li>
+                            <li><a href="{{ route('register') }}">Register <i class="bi bi-person-vcard-fill"></i></a>
+                            </li>
+                        @endauth
                     </ul>
                 </li>
                 <li class="dropdown active"><a href="{{ route('pendidikan') }}"><span>Pendidikan</span> <i
