@@ -1,8 +1,8 @@
-<a href="">
-<div class="card" style="width: 12rem;">
-<img src="..." class="card-img-top" alt="...">
+<div class="card border-0 text-center" style="width: 10rem; margin:10px;">
+  <a href="{{ $card_link ?? '$card_link' }}">
+<img src="{{ $card_src ?? '$card_src' }}" class="card-img-top" alt="...">
 <div class="card-body">
-  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-</div>
+  <p class="card-text">{{ $card_text ?? '$card_text' }}</p>
 </div>
 </a>
+</div>

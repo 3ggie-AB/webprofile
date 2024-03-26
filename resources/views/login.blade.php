@@ -25,7 +25,7 @@
             @enderror
     <div class="container" style="margin-top: 50px">
         <div class="row">
-            <div class="col-md-5 offset-md-3">
+            <div class="col-md-5 offset-md-3 mt-5">
                 <div class="card">
                     <div class="card-body shadow p-5 bg-white rounded">
                         <label>LOGIN</label>

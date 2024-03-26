@@ -1,9 +1,9 @@
 @extends('template.layar')
 @section('bg-body', '#c7c7c7')
 @section('body')
-    <div class="container" style="margin-top: 130px">
+    <div class="container">
         <div class="row">
-            <div class="col-md-5 offset-md-3">
+            <div class="col-md-5 offset-md-3 mt-4">
                 <div class="card">
                     <div class="card-body shadow p-5 bg-white rounded">
                         <label>REGISTER</label>

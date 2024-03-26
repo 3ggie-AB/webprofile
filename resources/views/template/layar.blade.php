@@ -32,7 +32,7 @@
 
 <body style="background: @yield('bg-body')">
 
-  @include('template.navbar-utama');
+  @include('template.navbar-utama')
 
   @yield('body')
 

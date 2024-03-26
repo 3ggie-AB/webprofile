@@ -1,17 +1,24 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Route;
-use App\Models\User;
 
 Route::get('/', function () {
     return view('index',['blog_title'=>'Home']);
 });
 
 route::get('/dashboard', function(){
-    return view('dashboard',['blog_title'=>'dashboard']);
+    return view('dashboard.index',['blog_title'=>'dashboard']);
 })->name('dashboard')->middleware('auth');
+
+// route::get('/item', function(){
+//     return view('dashboard.item',['blog_title'=>'dashboard']);
+// })->name('item')->middleware('auth');
+Route::resource('item', ItemController::class)->middleware('auth');
+Route::resource('/posts', \App\Http\Controllers\PostController::class)->middleware('auth');
 
 route::get('/kontak', function(){
     return view('kontak',['blog_title'=>'kontak']);
